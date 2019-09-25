@@ -98,6 +98,14 @@ func main() {
 		c.Set("endCode", template.HTML("<% }); %>"))
 		c.Set("endCode2", template.HTML("<% } %>"))
 
+		c.Set("firstCode", template.HTML("<%- errfor.first %>"))
+		c.Set("middleCode", template.HTML("<%- errfor.middle %>"))
+		c.Set("mapLastCode", template.HTML("<%- errfor['last'] %>"))
+
+		c.Set("newPasswordCode", template.HTML("<%- errfor.newPassword %>"))
+		c.Set("zipCode", template.HTML("<%- errfor.zip %>"))
+		c.Set("phoneCode", template.HTML("<%- errfor.phone %>"))
+		c.Set("companyCode", template.HTML("<%- errfor.company %>"))
 		c.Set("emailCode", template.HTML("<%- errfor.email %>"))
 		c.Set("confirmCode", template.HTML("<%- errfor.confirm %>"))
 		c.Set("usernameCode", template.HTML("<%- errfor.username %>"))

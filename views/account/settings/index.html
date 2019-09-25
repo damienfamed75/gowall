@@ -99,36 +99,36 @@
 <script type="text/template" id="tmpl-details">
 	<fieldset>
 		<legend>Contact Info</legend>
-		<div class="alerts"><% _.each(errors, function(err) { %>
-			<div class="alert alert-danger alert-dismissable"><%- err %></div><% }); %>
-			<% if (success) { %>
+		<div class="alerts">{{.eachCode}}
+			<div class="alert alert-danger alert-dismissable">{{.errorCode}}</div>{{.endCode}}
+			{{.ifSuccessCode}}
 			<div class="alert alert-info alert-dismissable">
 				<button type="button" data-dismiss="alert" class="close">&times;</button>Changes have been saved.
-			</div><% } %>
+			</div>{{.endCode2}}
 		</div>
-		<div class="form-group <%- errfor.first ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.first ? "has-error" : "" %>'>
 		<label>First Name:</label>
-		<input type="text" name="first" value="<%- first %>" class="form-control"/><span class="help-block"><%- errfor.first %></span>
+		<input type="text" name="first" value="<%- first %>" class="form-control"/><span class="help-block">{{.firstCode}}</span>
 		</div>
-		<div class="form-group <%- errfor.middle ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.middle ? "has-error" : "" %>'>
 		<label>Middle Name:</label>
-		<input type="text" name="middle" value="<%- middle %>" class="form-control"/><span class="help-block"><%- errfor.middle %></span>
+		<input type="text" name="middle" value="<%- middle %>" class="form-control"/><span class="help-block">{{.middleCode}}</span>
 		</div>
-		<div class="form-group <%- errfor.last ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.last ? "has-error" : "" %>'>
 		<label>Last Name:</label>
-		<input type="text" name="last" value="<%- last %>" class="form-control"/><span class="help-block"><%- errfor['last'] %></span>
+		<input type="text" name="last" value="<%- last %>" class="form-control"/><span class="help-block">{{.mapLastCode}}</span>
 		</div>
-		<div class="form-group <%- errfor.company ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.company ? "has-error" : "" %>'>
 		<label>Company Name:</label>
-		<input type="text" name="company" value="<%- company %>" class="form-control"/><span class="help-block"><%- errfor.company %></span>
+		<input type="text" name="company" value="<%- company %>" class="form-control"/><span class="help-block">{{.companyCode}}</span>
 		</div>
-		<div class="form-group <%- errfor.phone ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.phone ? "has-error" : "" %>'>
 		<label>Phone:</label>
-		<input type="text" name="phone" value="<%- phone %>" class="form-control"/><span class="help-block"><%- errfor.phone %></span>
+		<input type="text" name="phone" value="<%- phone %>" class="form-control"/><span class="help-block">{{.phoneCode}}</span>
 		</div>
-		<div class="form-group <%- errfor.zip ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.zip ? "has-error" : "" %>'>
 		<label>Zip:</label>
-		<input type="text" name="zip" value="<%- zip %>" class="form-control"/><span class="help-block"><%- errfor.zip %></span>
+		<input type="text" name="zip" value="<%- zip %>" class="form-control"/><span class="help-block">{{.zipCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-update">Update</button>
@@ -138,22 +138,22 @@
 <script type="text/template" id="tmpl-identity">
 	<fieldset>
 		<legend>Identity</legend>
-		<div class="alerts"><% _.each(errors, function(err) { %>
+		<div class="alerts">{{.eachCode}}
 			<div class="alert alert-danger alert-dismissable">
-				<button type="button" data-dismiss="alert" class="close">&times;</button><%- err %>
-			</div><% }); %>
-			<% if (success) { %>
+				<button type="button" data-dismiss="alert" class="close">&times;</button>{{.errorCode}}
+			</div>{{.endCode}}
+			{{.ifSuccessCode}}
 			<div class="alert alert-info alert-dismissable">
 				<button type="button" data-dismiss="alert" class="close">&times;</button>Changes have been saved.
-			</div><% } %>
+			</div>{{.endCode2}}
 		</div>
-		<div class="form-group <%- errfor.username ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.username ? "has-error" : "" %>'>
 		<label>Username:</label>
-		<input type="text" name="username" value="<%= username %>" class="form-control"/><span class="help-block"><%- errfor.username %></span>
+		<input type="text" name="username" value="<%= username %>" class="form-control"/><span class="help-block">{{.usernameCode}}</span>
 		</div>
-		<div class="form-group <%- errfor.email ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.email ? "has-error" : "" %>'>
 		<label>Email:</label>
-		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block"><%- errfor.email %></span>
+		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.emailCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-update">Update</button>
@@ -163,21 +163,21 @@
 <script type="text/template" id="tmpl-password">
 	<fieldset>
 		<legend>Set Password</legend>
-		<div class="alerts"><% _.each(errors, function(err) { %>
+		<div class="alerts">{{.eachCode}}
 			<div class="alert alert-danger alert-dismissable">
-				<button type="button" data-dismiss="alert" class="close">&times;</button><%- err %>
-			</div><% }); %>
-		</div><% if (success) { %>
+				<button type="button" data-dismiss="alert" class="close">&times;</button>{{.errorCode}}
+			</div>{{.endCode}}
+		</div>{{.ifSuccessCode}}
 		<div class="alert alert-info alert-dismissable">
 			<button type="button" data-dismiss="alert" class="close">&times;</button>A new password has been set.
-		</div><% } %>
-		<div class="form-group <%- errfor.newPassword ? "has-error" : "" %>">
+		</div>{{.endCode2}}
+		<div class='form-group <%- errfor.newPassword ? "has-error" : "" %>'>
 		<label>New Password:</label>
-		<input type="password" name="newPassword" value="<%= newPassword %>" class="form-control"/><span class="help-block"><%- errfor.newPassword %></span>
+		<input type="password" name="newPassword" value="<%= newPassword %>" class="form-control"/><span class="help-block">{{.newPasswordCode}}</span>
 		</div>
-		<div class="form-group <%- errfor.confirm ? "has-error" : "" %>">
+		<div class='form-group <%- errfor.confirm ? "has-error" : "" %>'>
 		<label>Confirm Password:</label>
-		<input type="password" name="confirm" value="<%= confirm %>" class="form-control"/><span class="help-block"><%- errfor.confirm %></span>
+		<input type="password" name="confirm" value="<%= confirm %>" class="form-control"/><span class="help-block">{{.confirmCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-password">Set Password</button>

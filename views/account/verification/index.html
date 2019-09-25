@@ -23,25 +23,25 @@
 </div>
 <script type="text/template" id="tmpl-verify">
 	<form>
-		<div class="alerts"><% _.each(errors, function(err) { %>
+		<div class="alerts">{{.eachCode}}
 			<div class="alert alert-danger alert-dismissable">
-				<button type="button" data-dismiss="alert" class="close">&times;</button><%- err %>
-			</div><% }); %>
-			<% if (success) { %>
+				<button type="button" data-dismiss="alert" class="close">&times;</button>{{.errorCode}}
+			</div>{{.endCode}}
+			{{.ifSuccessCode}}
 			<div class="alert alert-info alert-dismissable">
 				<button type="button" data-dismiss="alert" class="close">&times;</button>Verification email successfully re-sent.
-			</div><% } %>
-		</div><% if (!success) { %>
-		<div class="not-received<%= !keepFormOpen ? "" : " not-received-hidden" %>"><a class="btn btn-link btn-resend">I checked my email and spam folder, nothing yet.</a></div>
-		<div class="verify-form<%= keepFormOpen ? "" : " verify-form-hidden" %>">
-		<div class="form-group <%- errfor.email ? "has-error" : "" %>">
+			</div>{{.endCode2}}
+		</div>{{.ifNotSuccessCode}}
+		<div class='not-received<%= !keepFormOpen ? "" : " not-received-hidden" %>'><a class="btn btn-link btn-resend">I checked my email and spam folder, nothing yet.</a></div>
+		<div class='verify-form<%= keepFormOpen ? "" : " verify-form-hidden" %>'>
+		<div class='form-group <%- errfor.email ? "has-error" : "" %>'>
 		<label>Your Email:</label>
-		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block"><%- errfor.email %></span>
+		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.emailCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-verify">Re-Send Verification</button>
 		</div>
-		</div><% } %>
+		</div>{{.endCode2}}
 	</form>
 </script>
 <script type="text/template" id="data-user">
