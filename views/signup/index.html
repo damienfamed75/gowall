@@ -75,15 +75,15 @@
 		</div>
 		<div class='form-group <%- errfor.username ? "has-error" : "" %>'>
 		<label>Pick a Username:</label>
-		<input type="text" name="username" value="<%= username %>" class="form-control"/><span class="help-block">{{.usernameCode}}</span>
+		<input type="text" name="username" value="<%= username %>" class="form-control"/><span class="help-block">{{.errorUsernameCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.email ? "has-error" : "" %>'>
 		<label>Enter Your Email:</label>
-		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.emailCode}}</span>
+		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.errorEmailCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.password ? "has-error" : "" %>'>
 		<label>Create a Password:</label>
-		<input type="password" name="password" value="<%= password %>" class="form-control"/><span class="help-block">{{.passwordCode}}</span>
+		<input type="password" name="password" value="<%= password %>" class="form-control"/><span class="help-block">{{.errorPasswordCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-signup">Create My Account</button>

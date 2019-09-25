@@ -108,27 +108,27 @@
 		</div>
 		<div class='form-group <%- errfor.first ? "has-error" : "" %>'>
 		<label>First Name:</label>
-		<input type="text" name="first" value="<%- first %>" class="form-control"/><span class="help-block">{{.firstCode}}</span>
+		<input type="text" name="first" value="<%- first %>" class="form-control"/><span class="help-block">{{.errorFirstCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.middle ? "has-error" : "" %>'>
 		<label>Middle Name:</label>
-		<input type="text" name="middle" value="<%- middle %>" class="form-control"/><span class="help-block">{{.middleCode}}</span>
+		<input type="text" name="middle" value="<%- middle %>" class="form-control"/><span class="help-block">{{.errorMiddleCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.last ? "has-error" : "" %>'>
 		<label>Last Name:</label>
-		<input type="text" name="last" value="<%- last %>" class="form-control"/><span class="help-block">{{.mapLastCode}}</span>
+		<input type="text" name="last" value="<%- last %>" class="form-control"/><span class="help-block">{{.errorMapLastCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.company ? "has-error" : "" %>'>
 		<label>Company Name:</label>
-		<input type="text" name="company" value="<%- company %>" class="form-control"/><span class="help-block">{{.companyCode}}</span>
+		<input type="text" name="company" value="<%- company %>" class="form-control"/><span class="help-block">{{.errorCompanyCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.phone ? "has-error" : "" %>'>
 		<label>Phone:</label>
-		<input type="text" name="phone" value="<%- phone %>" class="form-control"/><span class="help-block">{{.phoneCode}}</span>
+		<input type="text" name="phone" value="<%- phone %>" class="form-control"/><span class="help-block">{{.errorPhoneCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.zip ? "has-error" : "" %>'>
 		<label>Zip:</label>
-		<input type="text" name="zip" value="<%- zip %>" class="form-control"/><span class="help-block">{{.zipCode}}</span>
+		<input type="text" name="zip" value="<%- zip %>" class="form-control"/><span class="help-block">{{.errorZipCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-update">Update</button>
@@ -149,11 +149,11 @@
 		</div>
 		<div class='form-group <%- errfor.username ? "has-error" : "" %>'>
 		<label>Username:</label>
-		<input type="text" name="username" value="<%= username %>" class="form-control"/><span class="help-block">{{.usernameCode}}</span>
+		<input type="text" name="username" value="<%= username %>" class="form-control"/><span class="help-block">{{.errorUsernameCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.email ? "has-error" : "" %>'>
 		<label>Email:</label>
-		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.emailCode}}</span>
+		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.errorEmailCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-update">Update</button>
@@ -173,11 +173,11 @@
 		</div>{{.endCode2}}
 		<div class='form-group <%- errfor.newPassword ? "has-error" : "" %>'>
 		<label>New Password:</label>
-		<input type="password" name="newPassword" value="<%= newPassword %>" class="form-control"/><span class="help-block">{{.newPasswordCode}}</span>
+		<input type="password" name="newPassword" value="<%= newPassword %>" class="form-control"/><span class="help-block">{{.errorNewPasswordCode}}</span>
 		</div>
 		<div class='form-group <%- errfor.confirm ? "has-error" : "" %>'>
 		<label>Confirm Password:</label>
-		<input type="password" name="confirm" value="<%= confirm %>" class="form-control"/><span class="help-block">{{.confirmCode}}</span>
+		<input type="password" name="confirm" value="<%= confirm %>" class="form-control"/><span class="help-block">{{.errorConfirmCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-password">Set Password</button>

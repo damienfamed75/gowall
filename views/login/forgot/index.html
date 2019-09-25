@@ -24,7 +24,7 @@
 		</div>{{.ifNotSuccessCode}}
 		<div class='form-group <%- errfor.email ? "has-error" : "" %>'>
 		<label>Enter Your Email:</label>
-		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.emailCode}}</span>
+		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.errorEmailCode}}</span>
 		</div>{{.endCode2}}
 		<div class="form-group">{{.ifNotSuccessCode}}
 			<button type="button" class="btn btn-primary btn-forgot">Send Reset</button>{{.endCode2}}

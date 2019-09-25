@@ -68,18 +68,7 @@ func main() {
 		session.Delete("oauthMessage")
 		session.Save()
 
-		// body := &bytes.Buffer{}
-		// io.Copy(body, c.Request.Body)
-		// body, _ := c.Request.GetBody()
-		// b, _ := ioutil.ReadAll(body)
-
-		// t, err := txt.New("code").Parse(string(b))
-		// if err != nil {
-		// 	log.Fatalf("error while parsing file: %v\n", err)
-		// }
-		// t.ExecuteTemplate(c.Writer, "errForUsernameCode", "<%- errfor.username ? \"has-error\" : \"\" %>")
-		// t.Execute(c.Writer, "<%- errfor.username ? \"has-error\" : \"\" %>")
-
+		// Default keys
 		c.Set("oauthMessage", oauthMessage)
 		c.Set("oauthMessageExist", exist)
 		c.Set("ProjectName", config.ProjectName)
@@ -87,31 +76,75 @@ func main() {
 		c.Set("CopyrightName", config.CompanyName)
 		c.Set("CacheBreaker", "br34k-01")
 
+		// Underscore each statements
 		c.Set("eachCode", template.HTML("<% _.each(errors, function(err) { %>"))
-		c.Set("errorCode", template.HTML(`<%- err %>`))
+		c.Set("eachPermissionCode", template.HTML("<% _.each(permissions, function(permission) { %>"))
+		c.Set("eachGroupCode", template.HTML("<% _.each(groups, function(group) { %>"))
 
+		// Variables
+		c.Set("errorCode", template.HTML(`<%- err %>`))
+		c.Set("nameFullCode", template.HTML("<%- name.full %>"))
+		c.Set("nameCode", template.HTML("<%- name %>"))
+		c.Set("usernameCode", template.HTML("<%= username %>"))
+		c.Set("dataCode", template.HTML("<%- data %>"))
+		c.Set("_idCode", template.HTML("<%= _id %>"))
+		c.Set("phonenumberCode", template.HTML("<%- phone %>"))
+		c.Set("pivotCode", template.HTML("<%- pivot %>"))
+		c.Set("isActiveCode", template.HTML("<%= isActive %>"))
+		c.Set("messageCode", template.HTML("<%= message %>"))
+		c.Set("statusNameCode", template.HTML("<%- status.name %>"))
+		c.Set("statusCreatedTimeCode", template.HTML("<%= status.userCreated.time %>"))
+		c.Set("pagesCurrentCode", template.HTML("<%= pages.current %>"))
+		c.Set("pagesTotalCode", template.HTML("<%= pages.total %>"))
+		c.Set("itemsBeginCode", template.HTML("<%= items.begin %>"))
+		c.Set("itemsEndCode", template.HTML("<%= items.end %>"))
+		c.Set("itemsTotalCode", template.HTML("<%= items.total %>"))
+		c.Set("createdNameCode,", template.HTML("<%= userCreated.name %>"))
+		c.Set("createdTimeCode", template.HTML("<%= userCreated.time %>"))
+
+		// If else statements
+		c.Set("ifGroupsLengthZeroCode", template.HTML("<% if (groups.length == 0) { %>"))
+		c.Set("ifPermissionPermittedCode", template.HTML("<% if (permission.permit) { %>"))
+		c.Set("ifPermissionsLengthZeroCode", template.HTML("<% if (permissions.length == 0) { %>"))
+		c.Set("ifNameCode", template.HTML("<% if (name) { %>"))
 		c.Set("ifSuccessCode", template.HTML("<% if (success) { %>"))
 		c.Set("ifIDUndefinedCode", template.HTML("<% if (id == undefined) { %>"))
 		c.Set("ifNotSuccessCode", template.HTML("<% if (!success) { %>"))
 		c.Set("ifNotSuccessANDIDNotUndefinedCode", template.HTML("<% if (!success && id != undefined) { %>"))
+		c.Set("ifRolesANDRolesAccount", template.HTML("<% if (roles && roles.account) { %>"))
+		c.Set("elseCode", template.HTML("<% } else { %>"))
 
+		// Ends of functions and closures
 		c.Set("endCode", template.HTML("<% }); %>"))
 		c.Set("endCode2", template.HTML("<% } %>"))
 
-		c.Set("firstCode", template.HTML("<%- errfor.first %>"))
-		c.Set("middleCode", template.HTML("<%- errfor.middle %>"))
-		c.Set("mapLastCode", template.HTML("<%- errfor['last'] %>"))
+		// Error variables
+		c.Set("errorFirstCode", template.HTML("<%- errfor.first %>"))
+		c.Set("errorMiddleCode", template.HTML("<%- errfor.middle %>"))
+		c.Set("errorLastCode", template.HTML("<%- errfor.last %>"))
+		c.Set("errorMapMiddleCode", template.HTML("<%- errfor['middle'] %>"))
+		c.Set("errorMapLastCode", template.HTML("<%- errfor['last'] %>"))
+		c.Set("errorNewAccountID", template.HTML("<%- errfor.newAccountId %>"))
+		c.Set("errorNewAdminID", template.HTML("<%- errfor.newAdminId %>"))
+		c.Set("errorNameCode", template.HTML("<%- errfor.name %>"))
+		c.Set("errorPivotCode", template.HTML("<%- errfor.pivot %>"))
+		c.Set("errorUsernameCode", template.HTML("<%- errfor.username %>"))
+		c.Set("errorEmailCode", template.HTML("<%- errfor.email %>"))
+		c.Set("errorMessageCode", template.HTML("<%- errfor.message %>"))
+		c.Set("errorMembershipsCode", template.HTML("<%- errfor.memberships %>"))
+		c.Set("errorSettingsCode", template.HTML("<%- errfor.settings %>"))
+		c.Set("errorNewUsernameCode", template.HTML("<%- errfor.newUsername %>"))
+		c.Set("errorNewPasswordCode", template.HTML("<%- errfor.newPassword %>"))
+		c.Set("errorZipCode", template.HTML("<%- errfor.zip %>"))
+		c.Set("errorPhoneCode", template.HTML("<%- errfor.phone %>"))
+		c.Set("errorCompanyCode", template.HTML("<%- errfor.company %>"))
+		c.Set("errorConfirmCode", template.HTML("<%- errfor.confirm %>"))
+		c.Set("errorPasswordCode", template.HTML("<%- errfor.password %>"))
 
-		c.Set("newPasswordCode", template.HTML("<%- errfor.newPassword %>"))
-		c.Set("zipCode", template.HTML("<%- errfor.zip %>"))
-		c.Set("phoneCode", template.HTML("<%- errfor.phone %>"))
-		c.Set("companyCode", template.HTML("<%- errfor.company %>"))
-		c.Set("emailCode", template.HTML("<%- errfor.email %>"))
-		c.Set("confirmCode", template.HTML("<%- errfor.confirm %>"))
-		c.Set("usernameCode", template.HTML("<%- errfor.username %>"))
-		c.Set("passwordCode", template.HTML("<%- errfor.password %>"))
+		// Error conditional expressions
 		c.Set("errForUsernameCode", template.HTML(`<%- errfor.username ? "has-error" : "" %>`))
 		c.Set("errForPasswordCode", template.HTML(`<%- errfor.password ? "has-error" : "" %>`))
+
 		c.Next()
 	})
 	Router.Use(IsAuthenticated)

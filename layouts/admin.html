@@ -77,8 +77,8 @@
 </script>
 <script type="text/template" id="tmpl-_search-results-row">
 	<% if (type && type == 'header') { %>
-	<%- name %>
-	<% } else { %><a href="<%= url %>"><%- name %></a><% } %>
+	{{.nameCode}}
+	{{.elseCode}}<a href="<%= url %>">{{.nameCode}}</a>{{.endCode2}}
 </script>
 <script type="text/template" id="tmpl-_search-results-empty-row">
 	<li class="dropdown-header">no docs matched</li>

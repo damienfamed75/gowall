@@ -17,29 +17,29 @@
 
 <script type="text/template" id="tmpl-header">
 	<div class="page-header">
-		<h1><a href="/admin/statuses/">Statuses</a> / <%- name %></h1>
+		<h1><a href="/admin/statuses/">Statuses</a> / {{.nameCode}}</h1>
 	</div>
 </script>
 
 <script type="text/template" id="tmpl-details">
 	<fieldset>
 		<legend>Details</legend>
-		<div class="alerts"><% _.each(errors, function(err) { %>
+		<div class="alerts">{{.eachCode}}
 			<div class="alert alert-danger alert-dismissable">
-				<button type="button" data-dismiss="alert" class="close">&times;</button><%- err %>
-			</div><% }); %>
-			<% if (success) { %>
+				<button type="button" data-dismiss="alert" class="close">&times;</button>{{.errorCode}}
+			</div>{{.endCode}}
+			{{.ifSuccessCode}}
 			<div class="alert alert-info alert-dismissable">
 				<button type="button" data-dismiss="alert" class="close">&times;</button>Changes have been saved.
-			</div><% } %>
+			</div>{{.endCode2}}
 		</div>
 		<div class="form-group <%- errfor.pivot ? "has-error" : "" %>">
 		<label>Pivot:</label>
-		<input type="text" name="pivot" value="<%- pivot %>" class="form-control"/><span class="help-block"><%- errfor.pivot %></span>
+		<input type="text" name="pivot" value="<%- pivot %>" class="form-control"/><span class="help-block">{{.errorPivotCode}}</span>
 		</div>
 		<div class="form-group <%- errfor.name ? "has-error" : "" %>">
 		<label>Name:</label>
-		<input type="text" name="name" value="<%- name %>" class="form-control"/><span class="help-block"><%- errfor.name %></span>
+		<input type="text" name="name" value="<%- name %>" class="form-control"/><span class="help-block">{{.errorNameCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-update">Update</button>
@@ -50,10 +50,10 @@
 <script type="text/template" id="tmpl-delete">
 	<fieldset>
 		<legend>Danger Zone</legend>
-		<div class="alerts"><% _.each(errors, function(err) { %>
+		<div class="alerts">{{.eachCode}}
 			<div class="alert alert-danger alert-dismissable">
-				<button type="button" data-dismiss="alert" class="close">&times;</button><%- err %>
-			</div><% }); %>
+				<button type="button" data-dismiss="alert" class="close">&times;</button>{{.errorCode}}
+			</div>{{.endCode}}
 		</div>
 		<div class="form-group"><span class="help-block"><span class="label label-danger">If you do this, it cannot be undone.</span>&nbsp;<span class="text-muted">You may also create orphaned document relationships too.</span></span></div>
 		<div class="form-group">

@@ -36,7 +36,7 @@
 		<div class='verify-form<%= keepFormOpen ? "" : " verify-form-hidden" %>'>
 		<div class='form-group <%- errfor.email ? "has-error" : "" %>'>
 		<label>Your Email:</label>
-		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.emailCode}}</span>
+		<input type="text" name="email" value="<%= email %>" class="form-control"/><span class="help-block">{{.errorEmailCode}}</span>
 		</div>
 		<div class="form-group">
 			<button type="button" class="btn btn-primary btn-verify">Re-Send Verification</button>

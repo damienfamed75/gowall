@@ -84,9 +84,9 @@
 	<td>
 		<input type="button" value="Edit" class="btn btn-default btn-sm btn-details"/>
 	</td>
-	<td><%- pivot %></td>
-	<td><%- name %></td>
-	<td class="nowrap"><%= _id %></td>
+	<td>{{.pivotCode}}</td>
+	<td>{{.nameCode}}</td>
+	<td class="nowrap">{{._idCode}}</td>
 </script>
 
 <script type="text/template" id="tmpl-results-empty-row">
@@ -98,8 +98,8 @@
 <script type="text/template" id="tmpl-results-paging">
 	<div class="well">
 		<div class="btn-group pull-left">
-			<button disabled="disabled" class="btn btn-default">Page <%= pages.current %> of <%= pages.total %></button>
-			<button disabled="disabled" class="btn btn-default">Rows <%= items.begin %> - <%= items.end %> of <%= items.total %></button>
+			<button disabled="disabled" class="btn btn-default">Page {{.pagesCurrentCode}} of {{.pagesTotalCode}}</button>
+			<button disabled="disabled" class="btn btn-default">Rows {{.itemsBeginCode}} - {{.itemsEndCode}} of {{.itemsTotalCode}}</button>
 		</div>
 		<div class="btn-group pull-right">
 			<button data-page="<%= pages.prev %>" class="btn btn-default btn-page btn-prev">Prev</button>
