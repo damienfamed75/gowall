@@ -1,0 +1,13 @@
+# Garbage
+.DS_Store
+Thumbs.db
+
+# Executable
+/gowall
+
+node_modules/
+jspm_packages/
+coverage
+.npm
+*.log
+logs
